@@ -1,0 +1,56 @@
+@import (reference) "../../style/mixin.less";
+@import "../../assets/iconfonts/iconfont.css";
+
+.prod-list-con {
+    padding-top: @common-wd;
+}
+
+.prod-list-ul {
+    background-color: #fff;
+
+    .prod-item {
+        min-height: 140px;
+        padding: @common-wd;
+        border-bottom: 1PX solid #eee;
+        .flex(space-between);
+
+        .prod-item-select {
+            .flex;
+
+            .prod-select-status {
+                .font(45px, #ccc);
+            }
+
+            .prod-selected {
+                color: @base-color;
+            }
+
+            .prod-name {
+                .font(36px);
+                margin-left: 20px;
+                margin-top: 12px;
+            }
+        }
+
+        .prod-item-edit {
+            .flex;
+
+            .icon-add {
+                .font(50px, #ccc);
+            }
+
+            .prod-num {
+                .font(30px, @text-align: center);
+                min-width: 60px;
+            }
+
+            .icon-reduce {
+                .font(50px, @base-color);
+            }
+
+            .edit-active {
+                color: @base-color;
+            }
+        }
+    }
+}
