@@ -358,11 +358,12 @@ module.exports = function(webpackEnv) {
                                 ),
 
                                 plugins: [
+                                    // |||按需加载蚂蚁金服组件|||
+                                    ['import', { libraryName: 'antd', style: true }, 'antd'],
+                                    ['import', { libraryName: 'antd-mobile', style: true }, 'antd-mobile'],
+                                    // |||这部分是增加的内容|||
+
                                     [
-                                        // |||按需加载蚂蚁金服组件|||
-                                        ['import', { libraryName: 'antd', style: true }, 'antd'],
-                                        ['import', { libraryName: 'antd-mobile', style: true }, 'antd-mobile'],
-                                        // |||
                                         require.resolve('babel-plugin-named-asset-import'),
                                         {
                                             loaderMap: {
