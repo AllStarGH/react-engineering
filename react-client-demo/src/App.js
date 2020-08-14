@@ -1,6 +1,12 @@
 import React from 'react';
+import { BrowserRouter as Router} from 'react-router-dom';
+
 import logo from './logo.svg';
 import './App.css';
+
+import NavigationListTest from '@/components/test/NavigationListTest';
+
+import RouteConfig from '@/router';
 
 function App() {
     return (
@@ -19,6 +25,13 @@ function App() {
           Learn React
         </a>
       </header>
+
+    <Router>
+      <RouteConfig />
+    </Router>
+
+    <NavigationListTest message="Decide on what path to follow" />
+
     </div>
     );
 }

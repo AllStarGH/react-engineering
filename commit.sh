@@ -20,7 +20,7 @@ git status
 
 git add .
 
-git commit -m "一些微小的调整,路由配置尚未解决."
+git commit -m "经过一番摆弄,已经可以启动运行."
 
 git pull origin master
 

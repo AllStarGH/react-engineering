@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@babel/core": "7.9.0",
+    "@babel/plugin-proposal-decorators": "^7.10.5",
     "@svgr/webpack": "4.3.3",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
@@ -41,7 +42,7 @@
     "jest-resolve": "24.9.0",
     "jest-watch-typeahead": "0.4.2",
     "less": "^3.12.2",
-    "less-loader": "^6.2.0",
+    "less-loader": "5.0.0",
     "mini-css-extract-plugin": "0.9.0",
     "optimize-css-assets-webpack-plugin": "5.0.3",
     "pnp-webpack-plugin": "1.6.4",
@@ -59,6 +60,7 @@
     "react-logger": "^1.1.0",
     "react-redux": "^7.2.1",
     "react-router-dom": "^5.2.0",
+    "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
     "resolve": "1.15.0",
     "resolve-url-loader": "3.1.1",
@@ -94,7 +96,8 @@
     ]
   },
   "devDependencies": {
-    "babel-plugin-import": "^1.13.0"
+    "babel-plugin-import": "^1.13.0",
+    "react-hot-loader": "^4.12.21"
   },
   "jest": {
     "roots": [
@@ -161,6 +164,14 @@
     ]
   },
   "babel": {
+    "plugins": [
+      [
+        "@babel/plugin-proposal-decorators",
+        {
+          "legacy": true
+        }
+      ]
+    ],
     "presets": [
       "react-app"
     ]

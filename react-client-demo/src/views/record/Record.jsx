@@ -8,11 +8,11 @@ import PublicHeader from '@/components/header/PublicHeader';
 import RecordList from './components/RecordList';
 
 /**
- * This class describes a rrecord.
+ * This class describes a record.
  *
- * @class      Rrecord (name)
+ * @class      Record (name)
  */
-class Rrecord extends Component {
+class Record extends Component {
     state = {
         flagBarPos: '17%'
     }
@@ -45,7 +45,8 @@ class Rrecord extends Component {
 
     // \\\\\\\\\\\\\\
 
-    constructor() {
+    constructor(props) {
+        super(props);
         console.dir(this);
     }
 
@@ -72,7 +73,7 @@ class Rrecord extends Component {
 
     render() {
         return (
-    <main className="common-con-top">
+            <main className="common-con-top">
         <PublicHeader title="记录" />
         <section className="record-nav-con">
             <nav className="record-nav">
@@ -93,3 +94,5 @@ class Rrecord extends Component {
     }
 
 }
+
+export default Record;

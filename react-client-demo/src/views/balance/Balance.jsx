@@ -5,7 +5,7 @@ import PublicHeader from '@/components/header/PublicHeader';
 
 import TouchableOpacity from '@/components/TouchableOpacity/TouchableOpacity';
 
-import PublicAlert from '@/component/alert/PublicAlert';
+import Alert from '@/components/alert/Alert';
 
 import api from '@/api/api';
 
@@ -113,7 +113,8 @@ class BrokeRage extends Component {
         this.initData();
     }
 
-    constructor() {
+    constructor(props) {
+        super(props);
         console.dir(this);
     }
 
@@ -127,12 +128,12 @@ class BrokeRage extends Component {
             <p className="broke-header">您的可提现额度为: ¥ {this.state.balance.balance} </p>
             <form className="broke-form">
                 <p>请输入体现金额(圆)</p>
-                <p> ¥ <input type="text" value={this.state.applyNum} placeholder="0.00" onInput={this.handleInput} maxLength="5">
+                <p> ¥ <input type="text" value={this.state.applyNum} placeholder="0.00" onInput={this.handleInput} maxLength="5" />
                 </p>
             </form>
             <TouchableOpacity className="submit-con" clickCallBack={this.submitForm} text="申请提现" />
         </selection>
-        <PublicAlert closeAlert={this.closeAlert} alertTip={this.state.alertTip} alertStatus={this.state.alertStatus} />
+        <Alert closeAlert={this.closeAlert} alertTip={this.state.alertTip} alertStatus={this.state.alertStatus} />
     </main>
         );
     }

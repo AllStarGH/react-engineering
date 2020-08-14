@@ -37,7 +37,6 @@ export const toggleSelectProd = index => {
     return {
         type: prod.toggle_select,
         index,
-        selectNum,
     }
 }
 

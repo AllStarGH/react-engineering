@@ -14,7 +14,7 @@ class RecordList extends Component {
     getRecord = async type => {
         try {
             let result = await api.getRecords({ type });
-            this.setState(recordData: result.data || []);
+            this.setState({recordData: result.data || []});
         } catch (err) {
             console.error(err)
         }
@@ -43,7 +43,8 @@ class RecordList extends Component {
         this.getRecord(type);
     }
 
-    constructor() {
+    constructor(props) {
+        super(props);
         console.dir(this);
     }
 

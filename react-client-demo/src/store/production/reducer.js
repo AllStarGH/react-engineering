@@ -41,21 +41,21 @@ export const prodData = (state = defaultState, action) => {
             imuItem = imuItem.set('selectStatus', !imuItem.get('selectStatus'));
             imuDataList = imuDataList.set(action.index, imuItem);
             // redux必须返回一个新的state
-            return { h...state, ...{ dataList: imuDataList.toJS() } };
+            return { ...state, ...{ dataList: imuDataList.toJS() } };
 
-        case pard.edit_production:
+        case prod.edit_production:
             // 避免引用类型数据,使immutable进行数据转换
             imuDataList = immutable.List(state.dataList);
             imuItem = immutable.Map(state.dataList[action.index]);
             imuItem = imuItem.set('selectNum', action.selectNum);
             imuDataList = imuDataList.set(action.index, imuItem);
             // redux必须返回一个新的state
-            return { ...state, ...{ dataList: imuDataList.toJS() } }
+            return { ...state, ...{ dataList: imuDataList.toJS() } };
 
             /*清空数据*/
-        case pard.clear_select:
+        case prod.clear_select:
             imuDataList = immutable.fromJS(state.dataList);
-            for (i of state.dataList) {
+            for (let i of state.dataList) {
                 imuDataList = imuDataList.update(i, item => {
                     item = item.set('selectStatus', false);
                     item = item.set('selecNum', 0);

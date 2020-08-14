@@ -1,0 +1,18 @@
+.list_div_1 {
+    background-color: #0e0b0b;
+    text-align: center;
+    color: #ffffff;
+}
+
+li {
+    list-style: none;
+
+    /*水平显示*/
+    display: inline-block;
+
+    margin: 10px 17px;
+}
+
+#address_1 {
+    color: #f7fb34;
+}

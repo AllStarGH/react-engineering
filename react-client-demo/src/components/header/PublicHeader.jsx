@@ -1,21 +1,24 @@
 import React, { Component } from 'react';
+import { is, fromJS } from 'immutable';
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { is, fromJS } from 'immutable';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 import './PublicHeader.less';
 
 export default class PublicHeader extends Component {
     constructor(props) {
-        console.info('...PublicHeader...')
+        super(props);
         console.log(this.props);
     };
 
     componentDidMount() {
         console.log('PublicHeader Component DID MOUNT!');
-        console.log(this);
     };
+
+    shouldComponentUpdate(nextProps, nextState) {
+        return !is(fromJS(this.props), fromJS(nextProps)) || !is(fromJS(this.state), fromJS(nextState));
+    }
 
     // \\\\\\\\\\\\\\\\\\\
 
@@ -40,23 +43,23 @@ export default class PublicHeader extends Component {
     render() {
         return (
             <header className="header-container">
-			<span className="header-slide-icon icon-catalog" onClick={this.toggleNav}></span>
-			<span className="header-title">{this.props.title}</span>
+            <span className="header-slide-icon icon-catalog" onClick={this.toggleNav}></span>
+            <span className="header-title">{this.props.title}</span>
 
-			{
+            {
                 this.props.record && <NavLink to="/record" exact className="header-link"></NavLink>
             }
 
-			{
+            {
                 this.props.confirm && <NavLink to="/" exact className="header-link header-link-confirm"></NavLink>
             }
 
-			{/*<span></span>*/}
+            {/*<span></span>*/}
         <ReactCSSTransitionGroup
                 component={this.FirstChild}
                 transitionName="nav"
-                transitionEnterTimeout="{300}"
-                transitionLeaveTimeout="{300}">
+                transitionEnterTimeout={300}
+                transitionLeaveTimeout={300}>
         {
         this.state.navState  && <aside key='nav-slide' className="nav-slide"
         onClick="{this.toggleNav}">
@@ -68,7 +71,7 @@ export default class PublicHeader extends Component {
         }
 
         </ReactCSSTransitionGroup>
-	    </header>
+        </header>
         );
     }
 }

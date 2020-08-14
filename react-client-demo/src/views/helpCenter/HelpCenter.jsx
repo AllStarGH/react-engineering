@@ -22,7 +22,7 @@ export default class HelpCenter extends Component {
     <main>
         <PublicHeader title="帮助中心" record />
         <article className="context-con">
-            <h2></h2>
+            <h2>简介</h2>
             <p>技术要点:</p>
             <p>react</p>
             <p>redux</p>

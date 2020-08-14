@@ -10,14 +10,12 @@ import { is, fromJS } from 'immutable';
  */
 export default class TouchableOpacity extends Component {
     constructor(props) {
-        console.info('...TouchableOpacity...')
-        console.log(this.props);
-        console.log(this.state);
+        super(props);
+        console.log(this);
     };
 
     componentDidMount() {
         console.log('TouchableOpacity Component DID MOUNT!')
-        console.log(this);
     }
 
     componentWillUnmount() {

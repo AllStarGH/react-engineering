@@ -3,7 +3,7 @@ import { HashRouter, Switch, Route, Redirect } from 'react-router-dom';
 
 import asyncComponent from '@/utils/AsyncComponent';
 
-import home from '@/views/home/HomePage';
+import HomePage from '@/views/home/HomePage';
 
 const record = asyncComponent(() => import("@/views/record/Record"));
 
@@ -22,7 +22,7 @@ export default class RouteConfig extends Component {
             <Route path="/" exact component={HomePage} />
             <Route path="/production" exact component={production} />
 
-            <Route path="/record" exact component={production} />
+            <Route path="/record" exact component={record} />
 			<Route path="/helpCenter" exact component={helpCenter} />
 			<Route path="/balance" exact component={balance} />
 

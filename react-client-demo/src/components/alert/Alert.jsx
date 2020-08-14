@@ -9,10 +9,9 @@ import './Alert.less';
 
 export default class Alert extends Component {
     constructor(props) {
-        console.info('...PublicHeader...')
-        console.log(this.props);
-        console.log(this.state);
-    };
+        super(props);
+        console.log(this);
+    }
 
     componentDidMount() {
         console.log('Alert Component DID MOUNT!')
@@ -41,19 +40,21 @@ export default class Alert extends Component {
     //关闭弹窗
     confirm = () => {
         this.props.closeAlert()
-    };
+    }
 
     shouldComponentUpdate(nextProps, nextState) {
-        return !is(fromJS(this.props), fromJS(nextProps) || !is(fromJS(this.state), fromJS(nextState))
+        return !is(fromJS(this.props), fromJS(nextProps)) || !is(fromJS(this.state), fromJS(nextState));
     }
+
+    // \\\\\\\\\\\\\\\\\\\\\\\\
 
     render() {
         return (
             <ReactCSSTransitionGroup
                 component={this.FirstChild}
                 transitionName="alert"
-                transitionEnterTimeout="{300}"
-                transitionLeaveTimeout="{300}">
+                transitionEnterTimeout={300}
+                transitionLeaveTimeout={300}>
 		{
     		this.props.alertStatus && <div className="alert-con">
 				<div className="alert-context">

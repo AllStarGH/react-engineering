@@ -1,10 +1,10 @@
-import { createStore, combinReducers, applyMiddleware } from 'redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import * as home from './home/reducer';
-import * as producation from './producation/reducer';
+import * as producation from './production/reducer';
 
 var store = createStore(
-    combinReducers({ ...home, ...producation }),
+    combineReducers({ ...home, ...producation }),
     applyMiddleware(thunk)
 );
 

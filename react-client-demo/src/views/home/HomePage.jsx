@@ -21,8 +21,8 @@ import './HomePage.less';
 
 @mixin({ filledStr })
 class HomePage extends Component {
-
     constructor(props) {
+        super(props);
         console.dir(this);
     }
 
@@ -59,7 +59,7 @@ class HomePage extends Component {
     }
 
     //已选择的商品数据
-    selectedPordList = [];
+    selectedProdList = [];
 
     /**
      * 将表单数据保存至redux,保留状态
@@ -77,13 +77,20 @@ class HomePage extends Component {
         switch (type) {
             case 'orderNum':
                 value = value.replace(/\D/g, "");
+                break;
 
             case 'name':
-                value = this.padStr(value.replace(/\D/g, ""), [3, 7], " ", event.target);
+                break;
+
+            case 'mobile':
+                value = this.filledStr(value.replace(/\D/g, ""), [3, 7], " ", event.target);
+                break;
 
             default:
-                console.log('nothin');
+                ;
         }
+        console.log(value);
+        this.props.saveFormData(value, type);
     }
 
     // 上传图片,并将图片地址存至redux,保留状态
@@ -142,48 +149,49 @@ class HomePage extends Component {
      * @param      {<type>}  props   The properties
      */
     initData = props => {
-        this.selectedPordList = [];
+        this.selectedProdList = [];
         props.prodData.dataList.forEach(item => {
             if (item.selectStatus && item.selectNum) {
                 console.log(item);
-                this.selectedPordList.push(item);
+                this.selectedProdList.push(item);
             }
         })
-        console.dir(selectedPordList);
+        console.dir(this.selectedProdList);
     }
 
     // \\\\\\\\\\\\\\\\
 
     render() {
         return (
-    <main className="home-container">
+            <main className="home-container">
         <PublicHeader title='首页' record />
         <p className="common-title">请录入您的信息</p>
-        <from className="home-form">
+        <form className="home-form">
             <div className="home-form-item">
                 <span>销售金额:</span>
-                <input type="text" placeholder="请输入订单金额" value={this.props.formData.orderSum} onChange={this.handleInput.bind(this,'orderSum')}>
+                <input type="text" placeholder="请输入订单金额" value={this.props.formData.orderSum} onChange={this.handleInput.bind(this,'orderSum')} />
             </div>
             <div className="home-form-item">
                 <span>客户姓名:</span>
-                <input type="text" placeholder="请输入客户姓名" value={this.props.formData.name} onChange={this.handleInput.bind(this,'name')}>
+                <input type="text" placeholder="请输入客户姓名" value={this.props.formData.name} onChange={this.handleInput.bind(this,'name')} />
             </div>
             <div className="home-form-item">
                 <span>客户电话:</span>
-                <input type="text" placeholder="请输入客户电话" value={this.props.formData.mobile} onChange={this.handleInput.bind(this,'mobile')}>
+                <input type="text" placeholder="请输入客户电话" value={this.props.formData.mobile} onChange={this.handleInput.bind(this,'mobile')} />
             </div>
-        </from>
+        </form>
         <div>
             <p className="common-title">请选择销售的商品</p>
             <Link to="/production" className="common-select-btn">
             {
-            this.selectedPordList.length ? <ul className="select-prod-list">
+            this.selectedProdList.length ? <ul className="select-prod-list">
                 {
-                this.selectedPordList.map((item,index)=>{
+                this.selectedProdList.map((item,index)=>{
                 return <li key={index} className="selected-prod-item ellipis">{item.product_name}x{item.selectNum}</li>
                 })
+
                 }
-            </ul>
+                </ul>:'选择产品'
             }
             </Link>
         </div>
@@ -191,12 +199,15 @@ class HomePage extends Component {
             <p className="common-title">请上传发票凭证</p>
             <div className="file-table">
                 <span className="common-select-btn">上传图片</span>
-                <input type="file" onChange={this.uploadImg}>
+
+                <input type="file" onChange={this.uploadImg} />
+
             </div>
-            <img src={this.props.formData.imgAddress} className="select-img" alt="">
+            <img src={this.props.formData.imgAddress} className="select-img" alt="" />
         </div>
-        <TouchableOpacity className="submit-btn" clickCallBack={this.submitForm} text="提交">
-            <PublicAlert closeAlert={this.closeAlert} alertTip={this.state.alertTip} alertStatus={this.state.alertStatus}>
+        <TouchableOpacity className="submit-btn" clickCallBack={this.submitForm} text="提交" />
+
+            <Alert closeAlert={this.closeAlert} alertTip={this.state.alertTip} alertStatus={this.state.alertStatus} />
     </main>
         );
     }
