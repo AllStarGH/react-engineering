@@ -20,7 +20,7 @@ git status
 
 git add .
 
-git commit -m "经过一番摆弄,已经可以启动运行."
+git commit -m "add image loads url."
 
 git pull origin master
 

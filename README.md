@@ -64,11 +64,11 @@ Local:  http://localhost:8081
 
 <center>
 
-![项目预览](./react-client-demo/src/assets/screen-shoots/1.jpg  "截图01");
+![项目预览](https://github.com/AllStarGH/react-engineering/blob/master/react-client-demo/src/assets/screen-shoots/1.jpg  "截图01");
 
-![项目预览](./react-client-demo/src/assets/screen-shoots/2.jpg  "截图02");
+![项目预览](https://github.com/AllStarGH/react-engineering/blob/master/react-client-demo/src/assets/screen-shoots/2.jpg  "截图02");
 
-![项目预览](./react-client-demo/src/assets/screen-shoots/3.jpg  "截图03");
+![项目预览](https://github.com/AllStarGH/react-engineering/blob/master/react-client-demo/src/assets/screen-shoots/3.jpg  "截图03");
 
 </center>
 
