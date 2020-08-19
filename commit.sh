@@ -20,7 +20,7 @@ git status
 
 git add .
 
-git commit -m "add image loads url."
+git commit -m "little bit revamps."
 
 git pull origin master
 
