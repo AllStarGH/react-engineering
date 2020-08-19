@@ -31,7 +31,7 @@ export default class Alert extends Component {
     }
 
     // css动画组件设置为目标组件
-    First = props => {
+    FirstChild = props => {
         const childrenArray = React.Childen.toArray(props.children);
         console.log(childrenArray);
         return childrenArray[0] || null;
